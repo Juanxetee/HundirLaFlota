@@ -57,12 +57,8 @@ class Tablero:
             while not colocado: #genera aleatoriamente una fila y columna de inicio, así como una orientación, seguira en bucle hasta colocar
                 fila = np.random.randint(0, self.dimensiones)
                 columna = np.random.randint(0, self.dimensiones)
-                orientacion = np.random.choice(['horizontal', 'vertical'])
+                orientacion = np.random.choice(["N","S","O","E"])
 
                 if self.validar_posicion(fila, columna, orientacion, longitud): #verifica si la posición es válida utilizando el método validar_posicion 
-                    if orientacion == 'horizontal':
-                        self.tablero_oculto[fila, columna:columna+longitud] = 1
-                    else:
-                        self.tablero_oculto[fila:fila+longitud, columna] = 1
-                    colocado = True #si es válida, coloca el barco en el tablero oculto.
+                   colocado = True #si es válida, coloca el barco en el tablero oculto.
 
