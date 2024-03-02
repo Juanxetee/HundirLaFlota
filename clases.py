@@ -14,7 +14,7 @@ class Tablero:
         self.tablero_oculto = np.zeros((self.dimensiones, self.dimensiones), dtype=int)   # Tablero oculto con los barcos del oponente y no se muestra al jugador.
 
 #Este método verifica si una posición dada en el tablero oculto es válida para colocar un barco. Toma una fila, columna, orientación y longitud como parámetros.
-    def validar_posicion(self, fila, columna, orientacion, longitud):
+    def validar_posicion(self, fila, columna, orientacion,longitud):
         if orientacion == 'N':
             if fila - longitud + 1 < 0: #verifica si colocar el barco excede los limites por arriba
                 return False
@@ -61,4 +61,22 @@ class Tablero:
 
                 if self.validar_posicion(fila, columna, orientacion, longitud): #verifica si la posición es válida utilizando el método validar_posicion 
                    colocado = True #si es válida, coloca el barco en el tablero oculto.
+                
+
+
+    def generar_barco_aleatorio(self, tablero, longitud): 
+        #filas, columnas = tablero.shape
+        fila = np.random.randint(0, filas - 1)
+        columna = np.random.randint(0, columnas - 1)
+        orientacion = np.random.choice(['N', 'S', 'O', 'E'])
+        while not self.validar_posicion(fila, columna, orientacion): # Va a llamar a la funcion posicionar barco hasta que devuelva true, una vez sea true otorga los valores random en el lugar que dio true
+            fila = np.random.randint(0, filas - 1)
+            columna = np.random.randint(0, columnas - 1)
+            orientacion = np.random.choice(['N', 'S', 'O', 'E'])
+
+
+if __name__ == "__main__": 
+    tab1 = Tablero(1)
+    print(tab1.tablero_oculto)
+
 
