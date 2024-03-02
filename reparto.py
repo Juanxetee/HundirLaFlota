@@ -14,11 +14,11 @@ Contexto:
 
 
 Funciones:
-- Crear tablero  MARIA
+- Crear tablero  MARIA -Está en función 1
 - Posicionar barcos ALFONSO
 - Disparo del usuario MARCE
 - Disparo del ordenador MARCE
-- Mostrar tablero MARIA
+- Mostrar tablero MARIA  -No veo claro cómo crear esta función
 
 Main : hacer una funcion que llame a las funciones. Incluye comprobación de final de juego si no hay barcos. While True.
 
