@@ -1,5 +1,4 @@
-
-Contexto:
+'''Contexto:
 - Tablero: CLASE JUANCHO
 	- Tablero de los barcos del usuario
 	- Tablero del juego del usurario
@@ -13,16 +12,10 @@ Contexto:
 - Mensaje de bienvenida e instrucciones del juego ALFONSO
 
 
-Funciones:# 1. dentro de funciones, 
-mostrar tablero,
-turnos, del jugador y maquina por separado y 
-fin del juego
-         
-- Crear tablero  MARIA
 - Posicionar barcos ALFONSO
 - Disparo del usuario MARCE
 - Disparo del ordenador MARCE
-- Mostrar tablero MARIA
+- Mostrar tablero MARIA  -No veo claro cómo crear esta función
 
 Main :
         #aqui ponemos hacer una funcion que llame a las funciones. Incluye comprobación de final de juego si no hay barcos. While True.
@@ -37,7 +30,8 @@ Requisitos:
 
 - Si acierta, sigue jugando
 	- Usuario
-	- Ordenador
+	- Ordenador'''
+
 
 
 # 1. dentro de funciones, mostrar tablero, turnos, del jugador y maquina por separado y fin del juego
