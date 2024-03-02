@@ -13,14 +13,19 @@ Contexto:
 - Mensaje de bienvenida e instrucciones del juego ALFONSO
 
 
-Funciones:
+Funciones:# 1. dentro de funciones, 
+mostrar tablero,
+turnos, del jugador y maquina por separado y 
+fin del juego
+         
 - Crear tablero  MARIA
 - Posicionar barcos ALFONSO
 - Disparo del usuario MARCE
 - Disparo del ordenador MARCE
 - Mostrar tablero MARIA
 
-Main : hacer una funcion que llame a las funciones. Incluye comprobación de final de juego si no hay barcos. While True.
+Main :
+        #aqui ponemos hacer una funcion que llame a las funciones. Incluye comprobación de final de juego si no hay barcos. While True.
 
 Requisitos:
 - Coordenadas:
@@ -33,3 +38,8 @@ Requisitos:
 - Si acierta, sigue jugando
 	- Usuario
 	- Ordenador
+
+
+# 1. dentro de funciones, mostrar tablero, turnos, del jugador y maquina por separado y fin del juego
+#2.para el main, seria una unica funcion que lo que hace es iniciar los tableros y mantener el juego 
+	#activo con un while true y dos breaks, uno para cada jugador.         

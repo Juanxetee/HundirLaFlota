@@ -10,7 +10,7 @@ class Tablero:
         self.id_jugador = id_jugador
         self.dimensiones = dimensiones_tablero
         self.barcos = barcos
-        self.tablero_visible = np.zeros((self.dimensiones, self.dimensiones), dtype=str)  # Tablero visible para el jugador, donde se muestran los barcos del jugador y los disparos de la maquina
+        self.tablero = np.zeros((self.dimensiones, self.dimensiones), dtype=str)  # Tablero visible para el jugador, donde se muestran los barcos del jugador y los disparos de la maquina
         self.tablero_oculto = np.zeros((self.dimensiones, self.dimensiones), dtype=int)   # Tablero oculto con los barcos del oponente ocultos, en este tablero se veran los disparos del jugador
         
 
@@ -20,25 +20,25 @@ class Tablero:
             if fila - longitud + 1 < 0: #verifica si colocar el barco excede los limites por arriba
                 return False
             for i in range(longitud):
-                if self.tablero_visible[fila - i, columna] != "o":  #verifica si hay otro barco en las posiciones donde se intenta colocar este
+                if tablero[fila - i, columna] != '':  #verifica si hay otro barco en las posiciones donde se intenta colocar este
                     return False
         elif orientacion == 'S':
             if fila + longitud > self.dimensiones:
                 return False
             for i in range(longitud):
-                if self.tablero_visible[fila + i, columna] != "o":
+                if tablero[fila + i, columna] != '':
                     return False
         elif orientacion == 'O':
             if columna - longitud + 1 < 0:
                 return False
             for i in range(longitud):
-                if self.tablero_visible[fila, columna - i] != "o":
+                if tablero[fila, columna - i] != '':
                     return False
         elif orientacion == 'E':
             if columna + longitud > self.dimensiones:
                 return False
             for i in range(longitud):
-                if self.tablero_visible[fila, columna + i] != "o":
+                if tablero[fila, columna + i] != '':
                     return False
         return True
     
@@ -52,29 +52,33 @@ class Tablero:
                 columna = np.random.randint(0, self.dimensiones)
                 orientacion = np.random.choice(["N","S","O","E"])
 
-                if self.validar_posicion(fila, columna, orientacion, longitud,self.tablero_visible):
+                if self.validar_posicion(fila, columna, orientacion, longitud,self.tablero):
                     if orientacion == 'N':
                         for i in range(longitud):
-                            self.tablero_visible[fila - i, columna] = "o"
+                            self.tablero[fila - i, columna] = "o"
+                            self.tablero_oculto[fila - i, columna] = 1
                     elif orientacion == 'S':
                         for i in range(longitud):
-                            self.tablero_visible[fila + i, columna] = "o"
+                            self.tablero[fila + i, columna] = "o"
+                            self.tablero_oculto[fila + i, columna] = 1
                     elif orientacion == 'O':
                         for i in range(longitud):
-                            self.tablero_visible[fila, columna - i] = "o"
+                            self.tablero[fila, columna - i] = "o"
+                            self.tablero_oculto[fila, columna - i] = 1
                     elif orientacion == 'E':
                         for i in range(longitud):
-                            self.tablero_visible[fila, columna + i] = "o"
+                            self.tablero[fila, columna + i] = "o"
+                            self.tablero_oculto[fila, columna + i] = 1
                     colocado = True #verifica si la posición es válida utilizando el método validar_posicion, si es válida, coloca el barco en el tablero propio
                 
     def disparo_coordenada(self, fila, columna):
-        if self.tablero_oculto[fila, columna] == "o":
-            self.tablero_oculto[fila, columna] = "x"  # Cambia el estado del tablero oculto para mostrar el impacto
-            self.tablero_visible[fila, columna] = "x"  # Cambia el estado del tablero visible para mostrar el impacto
+        if self.tablero_oculto[fila, columna] == 1:
+            self.tablero_oculto[fila, columna] = 2  # Cambia el estado del tablero oculto para mostrar el impacto
+            self.tablero[fila, columna] = "x"  # Cambia el estado del tablero visible para mostrar el impacto
             return True
         else:
-            self.tablero_oculto[fila, columna] = "-"  # Cambia el estado del tablero oculto para mostrar el disparo del oponente
-            self.tablero_visible[fila, columna] = '-'
+            self.tablero_oculto[fila, columna] = 3  # Cambia el estado del tablero oculto para mostrar el disparo del oponente
+            self.tablero[fila, columna] = '-'
             return False             
 
 
@@ -82,7 +86,7 @@ if __name__ == "__main__":
     tab1 = Tablero(id_jugador="juancho")
     print(tab1.inicializar_tablero())
     print("Tablero antes de los disparos:")
-    print(tab1.tablero_visible)
+    print(tab1.tablero)
     print("\n")
     coordenadas_disparos = [(0, 0), (2, 3), (5, 5)]
     for coordenada in coordenadas_disparos:
@@ -96,7 +100,7 @@ if __name__ == "__main__":
     # Mostrar el tablero después de los disparos
     print("\n")
     print("Tablero después de los disparos:")
-    print(tab1.tablero_visible)
+    print(tab1.tablero)
     print(tab1.tablero_oculto)
 
 
