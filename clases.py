@@ -87,7 +87,6 @@ if __name__ == "__main__":
     print(tab1.inicializar_tablero())
     print("Tablero antes de los disparos:")
     print(tab1.tablero)
-    print("\n")
     coordenadas_disparos = [(0, 0), (2, 3), (5, 5)]
     for coordenada in coordenadas_disparos:
         fila, columna = coordenada
