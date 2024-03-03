@@ -43,41 +43,7 @@ barcos = [[],[]] # Esto sellena con una lista por barco, que a su vez tiene las 
 coloca_barcos(tab1, barcos) # Entiendo que le damos el parámetro del tablero del jugador
 print(tab1)
 
-# Disparar
-def disparar(tablero, coordenada):
-    if tablero[coordenada] == " ":
-        print("Allí solo hay agua")
-        tablero[coordenada] == "\U0001F30A" # Unicode de ola    
-    elif tablero[coordenada] == "O":
-        print("¡Le has dado!")
-        tablero[coordenada] == "\U0001F525" # Unicode de fuego
-        vidas -= 1  # Cada vez que se acierta un casillero de barco, se resta una vida
-        while tablero[coordenada] == "O":
-            disparar() #hay que poner un break o pass o algo para cuando el while se corta?
-    else:
-        pass 
-# # No me queda claro qué opción sería else, ya que o hay barco o hay agua... 
-# a menos que sea una coordenada de fuera del tablero y haya que dar un mensaje de error, no solo pass...
-# igualmente con los tableros, que si juega el jugador1, es en el tablero "oculto" que se refleja el acierto o errada, y viceversa
-# Aqui se puede añadir algo de acierto = False / que cambie de usuario. 
-    # tipo return acierto = False / True
-# A menos que se acierte y cambie a True, en cuyo caso reinicia este bucle (o a la inversa, por defecto en loop pero si falla se corta)
-    
-disparar(tab1,()) # va la tupla con las coordenadas
-print(tablero) 
 
-# Hay que hacer el cambio de jugador. Y si le toca al humano, pedirle de nuevo una coordenada. si es la máquina, que dispare
-# es solo la idea para desarrollar, pero mal expresada
-# al inicializar el tablero debería haber un inico que determine que quien empieza es el humano, que puede ser id_jugador 1
-# Y En cada jugada debería estar activado el id_usuario, en cada turno
-def cambio_jugador(id_jugador):
-    if acierto == False: # es decir, si el jugador que estaba jugando falla, hay cambio
-        player_activo != id_player # el jugador activo ahora pasa a ser diferente al de la jugada anterior
-        if player_activo # es el humano
-            print("Es tu turno. Introduce las coordenadas:")
-            # Y de alguna forma esto deberia definir las coordenadas de la siguiente jugada del humano, no de la máquina
-        else:
-            # si le toca a la máquina, que active la función de disparar con parámetros aleatorios
 
 # Validar barco
 def validar_barco(tablero, barco):
@@ -179,6 +145,49 @@ def posicionar_barco(tablero, eslora):
     
     return coordenadas_barco
 
+# Disparar
+
+def coord_disparo
+# si es player_2, con randchoice + randint se define la coordenada
+# Si es player_1 persona se le pide y comprueba que sea una letra y número en los rangos adecuados.
+# de lo comtrario se le sigue pidiendo en bucle hasta que de coordenada válida
+
+
+def comprobar_disparo(tablero, coordenada):
+    if tablero[coordenada] == " ":
+        print("Allí solo hay agua")
+        tablero[coordenada] == "\U0001F30A" # Unicode de ola    
+    elif tablero[coordenada] == "O":
+        print("¡Le has dado!")
+        tablero[coordenada] == "\U0001F525" # Unicode de fuego
+        vidas -= 1  # Cada vez que se acierta un casillero de barco, se resta una vida
+        while tablero[coordenada] == "O":
+            disparar() #hay que poner un break o pass o algo para cuando el while se corta?
+    else:
+        pass 
+# # No me queda claro qué opción sería else, ya que o hay barco o hay agua... 
+# a menos que sea una coordenada de fuera del tablero y haya que dar un mensaje de error, no solo pass...
+# igualmente con los tableros, que si juega el jugador1, es en el tablero "oculto" que se refleja el acierto o errada, y viceversa
+# Aqui se puede añadir algo de acierto = False / que cambie de usuario. 
+    # tipo return acierto = False / True
+# A menos que se acierte y cambie a True, en cuyo caso reinicia este bucle (o a la inversa, por defecto en loop pero si falla se corta)
+    
+disparar(tab1,()) # va la tupla con las coordenadas
+print(tablero) 
+
+# Hay que hacer el cambio de jugador. Y si le toca al humano, pedirle de nuevo una coordenada. si es la máquina, que dispare
+# es solo la idea para desarrollar, pero mal expresada
+# al inicializar el tablero debería haber un inico que determine que quien empieza es el humano, que puede ser id_jugador 1
+# Y En cada jugada debería estar activado el id_usuario, en cada turno
+def cambio_jugador(id_jugador):
+    if acierto == False: # es decir, si el jugador que estaba jugando falla, hay cambio
+        player_activo != id_player # el jugador activo ahora pasa a ser diferente al de la jugada anterior
+        if player_activo # es el humano
+            print("Es tu turno. Introduce las coordenadas:")
+            # Y de alguna forma esto deberia definir las coordenadas de la siguiente jugada del humano, no de la máquina
+        else:
+            # si le toca a la máquina, que active la función de disparar con parámetros aleatorios
+
 # Y falta cerrar el bucle while de las vidas, una vez que se quede sin vidas alguno de los dos
 # es solo la idea, seguramente mal expresada
 def fin_partida(id_player, vidas):
@@ -199,7 +208,7 @@ print(f"Tentativa de barco. Posición inicial: [{ancho}][{largo}], y orientació
 # En este siguiente paso se generan las coordenadas, una para cada casillero (eslora) del barco
 eslora = x 
 # ¿Puede ser quehaya que hacer un bucle for que recorra la flota entera, cada barco con su eslora, 
-# para que genere un barco aleatorio por cada elemento de la flora con su tamaño correspondiente?
+# para que genere un barco aleatorio por cada elemento de la flota con su tamaño correspondiente?
 barco={"Coordenadas":(ancho, largo), "Eslora": eslora, "Orientación":o}
 coordenadas = generar_coord(barco)
 print(coordenadas)
