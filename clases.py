@@ -16,25 +16,30 @@ class Tablero:
 
 #Este método verifica si una posición dada en el tablero oculto es válida para colocar un barco. Toma una fila, columna, orientación y longitud como parámetros.
     def validar_posicion(self, fila, columna, orientacion,longitud,tablero):
+        #MF: como queremos verificar posición en tablero oculto, usamos tablero o mejor tablero_oculto?
         if orientacion == 'N': #
             if fila - longitud + 1 < 0: #verifica si colocar el barco excede los limites por arriba
+            #MF: por revisar si tiene que ser <=0 fila 1 dimensión 2. 1-2+1=0.   
                 return False
             for i in range(longitud):
                 if tablero[fila - i, columna] != '':  #verifica si hay otro barco en las posiciones donde se intenta colocar este
                     return False
         elif orientacion == 'S':
+             #MF: por revisar si tiene que ser columna+longitud -1 >= self.dimensiones. fila 9 dimensión 2. 9+2=11 que 11>10 si ponemos 9+2-1=10  10>=10                   
             if fila + longitud > self.dimensiones:
                 return False
             for i in range(longitud):
                 if tablero[fila + i, columna] != '':
                     return False
         elif orientacion == 'O':
+            #MF: por revisar si tiene que ser <=0. colunma 2 dimensión 3. 2-3+1=0
             if columna - longitud + 1 < 0:
                 return False
             for i in range(longitud):
                 if tablero[fila, columna - i] != '':
                     return False
         elif orientacion == 'E':
+             #MF: por revisar si tiene que ser columna+longitud -1 >= self.dimensiones. colunma 9 dimensión 3. 9+2=11 que 11>10         
             if columna + longitud > self.dimensiones:
                 return False
             for i in range(longitud):
