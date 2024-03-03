@@ -17,6 +17,12 @@ tab2 = Tablero(id_jugador="juancho")
 # de alguna forma tenemos que poder hacer el pase de un jugador al otro y llevar el registro separado de los barcos, aciertos, vidas...
 # ¿Tiene sentido crear un objeto jugador, que tenga su id (que puede ser remplazado por el alias que el usuario quiera, 
 # que muestre a su vez las vidas que le quedan / su flota? 
+# ¿No habría que ponerle a cada objeto usuario un atributo flota que sea como un diccionario o lista de tuplas, 
+#con el tipo de barco (según uno de los 4 tamaños) y la cantidad de cada. que puede venir con valores predeefinidos 
+# como en el ejercicio este (4,3,2,1) pero se pueden modifica. 
+# Así se le define la flota de 1 vez, #con el sistema aleatorio que ya está, y se hace todo el proceso de verificación 
+# y de ponerlo en el tablero recorriendo todo este diccionario. Así se puede decidir la cantidad de barcos en los atributos del jugador,
+# o el tamaño de cada uno, en caso de que quisiéramos hacer cambios en algún momento futuro.
 
 # Y si al tablero le ponemos que el índice de los arrays sea una letra, en lugar de número, y el jugador entra una letra y un número, 
 # como en el juego de toda la vida, y así la A es el índice 0, la B el 1
