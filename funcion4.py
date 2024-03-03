@@ -1,3 +1,5 @@
+
+=======
 # Notas Marce
 
 # Lo de inicializar el tablero (que primero debe estar vacío) para poblarlo con barcos, ¿no son 2 pasos diferentes (1: crear 2: poblar)?
@@ -228,3 +230,4 @@ print(tablero)
 
 # Para articularlo supongo que habrá primero que definir las clases (tablero y barcos) y variables (barcos)
 # Que luego habrá que poner las vidas (igual a las suma de las esloras) y arrancar con un bucle while de "while vidas > 0:"
+>>>>>>> 8ebdc7734101efb9867581cc73a92d8aa438949b
