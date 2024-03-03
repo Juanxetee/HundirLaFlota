@@ -17,10 +17,9 @@ class Barco:
     def __init__(self, eslora):
         self.eslora = eslora
 
-# Dónde se definen las vidas, que son los números de casilleros totales de los barcos?
-# No hay que, al inicializar el juego, incluir el parámetro "vidas" paracada jugador, que se rellene luego según los barcos?
-# Y no se pone allí mismo que son 2 jugadores, por ej: id_jugador1 e id_jugador2, 
+# No se define en lapropia clase que son 2 jugadores, por ej: id_jugador1 e id_jugador2, 
 # y que al iniciar se le pregunte al jugador humano su nombre y con eso reemplace el "id_jugador1"?
+# de alguna forma tenemos que poder hacer el pase de un jugador al otro y llevar el registro separado de los barcos, aciertos, vidas...
 vidas = [0]
 for barco in barcos:
     vidas += eslora(barco)
