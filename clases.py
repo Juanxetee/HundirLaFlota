@@ -12,7 +12,7 @@ class Tablero:
         self.barcos = barcos
         self.tablero = np.zeros((self.dimensiones, self.dimensiones), dtype=str)  # Tablero visible para el jugador, donde se muestran los barcos del jugador y los disparos de la maquina
         self.tablero_oculto = np.zeros((self.dimensiones, self.dimensiones), dtype=int)   # Tablero oculto con los barcos del oponente ocultos, en este tablero se veran los disparos del jugador
-        
+        #ver si hace falta self.tableropc para llenarlo con array aleatorio (sería el tablero no visible del pc)
 
 #Este método verifica si una posición dada en el tablero oculto es válida para colocar un barco. Toma una fila, columna, orientación y longitud como parámetros.
     def validar_posicion(self, fila, columna, orientacion,longitud,tablero):
@@ -60,6 +60,7 @@ class Tablero:
                 if self.validar_posicion(fila, columna, orientacion, longitud,self.tablero):
                     if orientacion == 'N':
                         for i in range(longitud):
+                            #MF: Ver si en vez de ="O"  es igual a 0 ya que el tablero se ha llenado con np.zeros, igual en los otros puntos cardinales.
                             self.tablero[fila - i, columna] = "O"
                             self.tablero_oculto[fila - i, columna] = 1
                     elif orientacion == 'S':

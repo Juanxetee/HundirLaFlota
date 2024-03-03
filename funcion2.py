@@ -8,36 +8,39 @@ def disparo_coordenada(self, fila, columna):
             self.tablero[fila, columna] = '~'
             return False    
 
-# BONUS: RECOMPENSA creamos input de 1 o 2 para que el user elija una recompensa
-def eleccionrecompensa(tablero):
-    pregunta= (input("Elige 1 si quieres un nuevo tiro y Elige 2 si quieres reparar una pieza de barco"))
-    if pregunta == 1:
-        recibe_disparo(tablero)
-    elif pregunta ==2:
+# BONUS: RECOMPENSA creamos recompensa de reparar una pieza
+def recompensa(tablero):
+    pregunta= (input("Si quieres reparar una pieza de barco pulsa 1"))
+    if pregunta ==1:
         arreglabarco(tablero)
-        cambioturno
+        disparar(tablero)
     else:
         print("Has introducido un valor no válido pierdes la recompensa")
     return tablero
 
-def recibe_disparo(tablero):
+def disparar(tablero):
     #for disparo in tablero creamos un input de coordenada:
+    fallo_jugador= False
     control = False
     contador=0
     while not control:
-        coordenadarecib = tuple(map(int,input("PC introduce la cooordenada").split(',')))
-        if tablero[coordenadarecib]=="0": 
-            tablero[coordenadarecib]="X"
-            print(f" Tocado")
-            print(tablero)
-            control= False 
+        coordenada = tuple(map(int,input("Jugador por favor introduce la cooordenada").split(',')))
+        tablero= self.tableropc
+        tablerooculto= self.tablero_oculto
+        if tablero[coordenada]=="0": 
+            tablero[coordenada]="X"
+            print(f" Tocado vuelve a disparar")
+            tablerooculto[coordenada]="X"
+            print(tablero_oculto)
+            control= False
+            fallo_jugador= False
             contador=contador+1
             if contador==2:
-                eleccionrecompensa(tablero)
+                recompensa(tablero)
                 #print(f" Contador: {contador}")
                 contador=0
                 print(contador)
-        elif tablero[coordenadarecib]=="X":
+        elif tablero[coordenada]=="X":
             print("Dispara a otro punto más tarde,ahora cambia de turno")
             control= True
         else:
@@ -49,4 +52,28 @@ def recibe_disparo(tablero):
 
 tablero=recibe_disparo(tablero)
 print(tablero)
+
+
+#verificar que coordenada es válida para el tablero
+
+
+#función elegir paso para el usuario (bonus)
+def elegiropcion():
+    pregunta= (int(input("Elige 1 si quieres disparar. / Elige 2 si quieres ver tu tablero. / Elige 3 si quieres ver tus disparos en el tablero de tu contrincante / Elige 4 si quieres salir")))
+    if pregunta == 1:
+        crear_disparo(tablero)
+    elif pregunta ==2:
+        mostrartablero(tablero)
+    elif pregunta ==3:
+        mostrartablerouser2(tablerouser2)
+   else:
+        print("Has introducido un valor no válido")
+    return tablero
+
+
+    
+
+
+
+
          
