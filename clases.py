@@ -55,37 +55,38 @@ class Tablero:
                 if self.validar_posicion(fila, columna, orientacion, longitud,self.tablero):
                     if orientacion == 'N':
                         for i in range(longitud):
-                            self.tablero[fila - i, columna] = "o"
+                            self.tablero[fila - i, columna] = "O"
                             self.tablero_oculto[fila - i, columna] = 1
                     elif orientacion == 'S':
                         for i in range(longitud):
-                            self.tablero[fila + i, columna] = "o"
+                            self.tablero[fila + i, columna] = "O"
                             self.tablero_oculto[fila + i, columna] = 1
                     elif orientacion == 'O':
                         for i in range(longitud):
-                            self.tablero[fila, columna - i] = "o"
+                            self.tablero[fila, columna - i] = "O"
                             self.tablero_oculto[fila, columna - i] = 1
                     elif orientacion == 'E':
                         for i in range(longitud):
-                            self.tablero[fila, columna + i] = "o"
+                            self.tablero[fila, columna + i] = "O"
                             self.tablero_oculto[fila, columna + i] = 1
                     colocado = True #verifica si la posición es válida utilizando el método validar_posicion, si es válida, coloca el barco en el tablero propio
                 
     def disparo_coordenada(self, fila, columna):
         if self.tablero_oculto[fila, columna] == 1:
             self.tablero_oculto[fila, columna] = 2  # Cambia el estado del tablero oculto para mostrar el impacto
-            self.tablero[fila, columna] = "x"  # Cambia el estado del tablero visible para mostrar el impacto
+            self.tablero[fila, columna] = "X"  # Cambia el estado del tablero visible para mostrar el impacto
             return True
         else:
             self.tablero_oculto[fila, columna] = 3  # Cambia el estado del tablero oculto para mostrar el disparo del oponente
-            self.tablero[fila, columna] = '-'
+            self.tablero[fila, columna] = '~'
             return False             
 
 
 if __name__ == "__main__": 
     tab1 = Tablero(id_jugador="juancho")
     print(tab1.inicializar_tablero())
-    print("Tablero antes de los disparos:")
+    print("Tablero visible antes de los disparos:")
+    print()
     print(tab1.tablero)
     coordenadas_disparos = [(0, 0), (2, 3), (5, 5)]
     for coordenada in coordenadas_disparos:
@@ -97,10 +98,16 @@ if __name__ == "__main__":
             print(f"Disparo en la coordenada {coordenada}, sin impacto.")
 
     # Mostrar el tablero después de los disparos
-    print("\n")
-    print("Tablero después de los disparos:")
+    # print("\n")
+    print("Tablero visible después de los disparos:")
     print(tab1.tablero)
+    print()
+    print("Tablero oculto después de los disparos:")
     print(tab1.tablero_oculto)
+    
+   
+    
+    
 
 
 
