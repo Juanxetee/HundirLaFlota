@@ -7,12 +7,16 @@
 
 # En clases no hay que inicializar un tercer tablero?
 tab0 = Tablero() # sería el tablero vacío que se genera al inicializar la clase tablero, no?
-tab1 = Tablero(id_jugador="juancho") # Los barcos de jugador 1
-tab2 = Tablero(id_jugador="juancho") # Los disparos de jugador 1. ¿Iría con mismo id_jugador???
+tab1 = Tablero(id_jugador="juancho") 
+# Esos serían los barcos de jugador 1 donde primero se imprimen los barcos y se le sobreescriben los disparos de la máquina
+tab2 = Tablero(id_jugador="juancho") 
+# Y este otro el de los disparos de jugador 1. ¿Iría con mismo id_jugador???
 
-# No se define en lapropia clase que son 2 jugadores, por ej: id_jugador1 e id_jugador2, 
+# No se define en la propia clase Tablero que son 2 jugadores, por ej: id_jugador1 e id_jugador2, 
 # y que al iniciar se le pregunte al jugador humano su nombre y con eso reemplace el "id_jugador1"?
 # de alguna forma tenemos que poder hacer el pase de un jugador al otro y llevar el registro separado de los barcos, aciertos, vidas...
+# ¿Tiene sentido crear un objeto jugador, que tenga su id (que puede ser remplazado por el alias que el usuario quiera, 
+# que muestre a su vez las vidas que le quedan / su flota? 
 
 # Y si al tablero le ponemos que el índice de los arrays sea una letra, en lugar de número, y el jugador entra una letra y un número, 
 # como en el juego de toda la vida, y así la A es el índice 0, la B el 1
