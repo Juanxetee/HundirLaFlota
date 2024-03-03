@@ -8,18 +8,19 @@ tab0 = Tablero() # sería el tablero vacío que se genera al inicializar la clas
 tab1 = Tablero(id_jugador="juancho") # Los barcos de jugador 1
 tab2 = Tablero(id_jugador="juancho") # Los disparos de jugador 1. ¿Iría con mismo id_jugador???
 
+# No se define en lapropia clase que son 2 jugadores, por ej: id_jugador1 e id_jugador2, 
+# y que al iniciar se le pregunte al jugador humano su nombre y con eso reemplace el "id_jugador1"?
+# de alguna forma tenemos que poder hacer el pase de un jugador al otro y llevar el registro separado de los barcos, aciertos, vidas...
 
 # En las instrucciones se recomienda crear una clase barcos. 
-# No se me ocurre qué atributos pueden tener más allá de la eslora...
-
+# No se me ocurre qué atributos pueden tener más allá de la eslora... 
+# Un identificador del tablero o jugador al que pertenecen?
 class Barco:
 # Aquí definiríamos los atributos y métodos de la clase barcos
     def __init__(self, eslora):
         self.eslora = eslora
 
-# No se define en lapropia clase que son 2 jugadores, por ej: id_jugador1 e id_jugador2, 
-# y que al iniciar se le pregunte al jugador humano su nombre y con eso reemplace el "id_jugador1"?
-# de alguna forma tenemos que poder hacer el pase de un jugador al otro y llevar el registro separado de los barcos, aciertos, vidas...
+
 vidas = [0]
 for barco in barcos:
     vidas += eslora(barco)
@@ -31,6 +32,7 @@ def coloca_barcos(tablero, barcos):
             tablero[c] = "\U0001F6A2" # Unicode de "ship"
 
 barcos = [[],[]] # Esto sellena con una lista por barco, que a su vez tiene las tuplas de las coordenadas de cada casillero
+# se hará una por jugador, no?
 coloca_barcos(tab1, barcos) # Entiendo que le damos el parámetro del tablero del jugador
 print(tab1)
 
@@ -47,13 +49,22 @@ def disparar(tablero, coordenada):
             disparar() #hay que poner un break o pass o algo para cuando el while se corta?
     else:
         pass 
-# No me queda claro qué opción sería else, ya que o hay barco o hay agua... 
+# # No me queda claro qué opción sería else, ya que o hay barco o hay agua... 
 # a menos que sea una coordenada de fuera del tablero y haya que dar un mensaje de error, no solo pass...
-# igual hay que definir que si es el jugador1 y acierta, la vida se le descuente al 2 y viceversa
 # igualmente con los tableros, que si juega el jugador1, es en el tablero "oculto" que se refleja el acierto o errada, y viceversa
+# Aqui se puede añadir algo de acierto = False / que cambie de usuario. 
+    # tipo return acierto = False / True
+# A menos que se acierte y cambie a True, en cuyo caso reinicia este bucle (o a la inversa, por defecto en loop pero si falla se corta)
+    
+disparar(tab1,()) # va la tupla con las coordenadas
+print(tablero) 
 
-disparar(tab1,())
-print(tablero) # va la tupla con las coordenadas
+def cambio_jugador(id_jugador):
+    if acierto == False: 
+        player_activo != id_player # que cambia y pasa a ser el otro 
+
+# decirle que es el jugador activo ahora es diferente al de la jugada anterior, que tb tendría activado su id_usuario en cada turno
+
 
 # Validar barco
 def validar_barco(tablero, barco):
@@ -151,6 +162,9 @@ def posicionar_barco(tablero, eslora):
     
     return coordenadas_barco
 
+# En la parte de bonus se propone que el jugador tenga la opción de Salir
+def cambio_jugador(id_jugador. tablero):
+    if disparar == # acierto
 
 # Y esto ya parecería ser el juego:
 # con esto se define el punto de partida, la coordenada inicial más la orientación
