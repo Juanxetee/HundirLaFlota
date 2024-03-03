@@ -12,6 +12,9 @@ tab2 = Tablero(id_jugador="juancho") # Los disparos de jugador 1. ¿Iría con mi
 # y que al iniciar se le pregunte al jugador humano su nombre y con eso reemplace el "id_jugador1"?
 # de alguna forma tenemos que poder hacer el pase de un jugador al otro y llevar el registro separado de los barcos, aciertos, vidas...
 
+# Y si al tablero le ponemos que el índice de los arrays sea una letra, en lugar de número, y el jugador entra una letra y un número, 
+# como en el juego de toda la vida, y así la A es el índice 0, la B el 1
+
 # En las instrucciones se recomienda crear una clase barcos. 
 # No se me ocurre qué atributos pueden tener más allá de la eslora... 
 # Un identificador del tablero o jugador al que pertenecen?
@@ -110,6 +113,10 @@ def verificar_coord(tablero, ancho,largo):
     if tablero[ancho][largo] == "\U0001F6A2" or tablero[ancho][largo] == "\U0001F525": 
         return False
     return True
+# Esto mismo, pero adaptado, no se podría usar para verificar que las coordenadas del usuario están efectivamente dentro del tablero
+# Y en caso contrario indicar que no es correcto, que lo vuelva a poner
+
+
 
 # Creación de los barcos aleatorios
 eslora = x
