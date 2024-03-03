@@ -59,12 +59,18 @@ def disparar(tablero, coordenada):
 disparar(tab1,()) # va la tupla con las coordenadas
 print(tablero) 
 
+# Hay que hacer el cambio de jugador. Y si le toca al humano, pedirle de nuevo una coordenada. si es la máquina, que dispare
+# es solo la idea para desarrollar, pero mal expresada
+# al inicializar el tablero debería haber un inico que determine que quien empieza es el humano, que puede ser id_jugador 1
+# Y En cada jugada debería estar activado el id_usuario, en cada turno
 def cambio_jugador(id_jugador):
-    if acierto == False: 
-        player_activo != id_player # que cambia y pasa a ser el otro 
-
-# decirle que es el jugador activo ahora es diferente al de la jugada anterior, que tb tendría activado su id_usuario en cada turno
-
+    if acierto == False: # es decir, si el jugador que estaba jugando falla, hay cambio
+        player_activo != id_player # el jugador activo ahora pasa a ser diferente al de la jugada anterior
+        if player_activo # es el humano
+            print("Es tu turno. Introduce las coordenadas:")
+            # Y de alguna forma esto deberia definir las coordenadas de la siguiente jugada del humano, no de la máquina
+        else:
+            # si le toca a la máquina, que active la función de disparar con parámetros aleatorios
 
 # Validar barco
 def validar_barco(tablero, barco):
@@ -162,9 +168,17 @@ def posicionar_barco(tablero, eslora):
     
     return coordenadas_barco
 
-# En la parte de bonus se propone que el jugador tenga la opción de Salir
-def cambio_jugador(id_jugador. tablero):
-    if disparar == # acierto
+# Y falta cerrar el bucle while de las vidas, una vez que se quede sin vidas alguno de los dos
+# es solo la idea, seguramente mal expresada
+def fin_partida(id_player, vidas):
+    if id_player_1[vidas] = 0:
+        print("Toda tu flota seha hundido. Fin del juego")       
+    elif:
+        print("¡Felicidades. Has hundido toos los barcos!.")
+    print(tab1)
+    print(tab2)
+    en_juego = False # que al inicio de la partida podría estar predefinida en True
+
 
 # Y esto ya parecería ser el juego:
 # con esto se define el punto de partida, la coordenada inicial más la orientación
