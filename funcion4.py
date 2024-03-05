@@ -4,6 +4,7 @@
 
 # Lo de inicializar el tablero (que primero debe estar vacío) para poblarlo con barcos, ¿no son 2 pasos diferentes (1: crear 2: poblar)?
 # por qué los barcos ya están dentro de la clase Tablero?
+#MF: Para mi hay que crear tablero user tablero pc y un copy de tablero pc antes de añadir barcos que será tablero oculto y sobre él hacer las marcas de disparos (ver hoja funcion 3 si quieres ver como lo he planteado)
 
 # En clases no hay que inicializar un tercer tablero?
 tab0 = Tablero() # sería el tablero vacío que se genera al inicializar la clase tablero, no?
