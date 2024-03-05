@@ -92,7 +92,7 @@ def disparar(tablero,tablero_oculto):
             try: 
             #Creamos solicitud de coordenadas y revisamos que sean validas en el tablero
                 entrada = input("Jugador, por favor introduce la coordenada (ej. 3,4): ")
-                coordenada_x, coordenada_y = map(int, entrada.split(','))      
+                coordenada_x, coordenada_y = map(int, entrada.split(','))   
                 
                 if 0 <= coordenada_x < tablero_tamaño and 0 <= coordenada_y < tablero_tamaño:
                     coordenada = (coordenada_x, coordenada_y)
