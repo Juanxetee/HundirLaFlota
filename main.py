@@ -10,7 +10,7 @@ def main():
 
     print("¡Bienvenido a Hundir la Flota!")
     print("Instrucciones:")
-    print(" - 'O' representa agua")
+    print(" - '-' representa agua")
     print(" - 'X' representa un barco impactado")
     print()
 
