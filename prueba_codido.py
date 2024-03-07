@@ -158,8 +158,8 @@ class Tablero:
         pregunta = "\nIntroduce aquí las coordenadas de disparo (ej. 3,4): \n"
         pregunta += "\nEscribe 'fin' para salir del programa"
         
-        pregunta = ""
-        while pregunta != "fin":
+        entrada = ""
+        while entrada != "fin":
             
             fallo_jugador = False
             while not fallo_jugador:
@@ -213,6 +213,7 @@ class Tablero:
                         self.tablero_ordenador[fila][columna]= "X"
                         vida_usuario -=1
                         print("Tocado, vuelvo a disparar")
+                        print("Así queda tu tablero de juego \n",self.tablero_barcos_usuario)
                         coord_disparo_ordenador.append(coord_disparo)
                         vidas_usuario -=1
                 
@@ -222,7 +223,8 @@ class Tablero:
                         self.tablero_barcos_usuario[fila][columna]== " "
                         self.tablero_barcos_usuario[fila][columna] = "~"
                         self.tablero_ordenador[fila][columna]= "~"
-                        print("Agua, recuperas turno")
+                        print("Agua. Te toca a tí")
+                        print("Así queda tu tablero de juego \n",self.tablero_barcos_usuario)
                         coord_disparo_ordenador.append(coord_disparo)
                         repetido = False
 
