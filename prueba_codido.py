@@ -95,6 +95,8 @@ class Tablero:
                     
                     
     def validar_posicion(self, fila, columna, orientacion, longitud, tablero):
+        print(longitud)
+        print("validando posicion")
         if orientacion == 'N':
             if fila - longitud + 1 < 0:
                 return False
@@ -111,7 +113,7 @@ class Tablero:
             if columna - longitud + 1 < 0:
                 return False
             for i in range(longitud):
-                if tablero[fila, columna - i] != '~ ':
+                if tablero[fila, columna - i] != '~':
                     return False
         elif orientacion == 'E':
             if columna + longitud > self.dimensiones:
@@ -119,6 +121,7 @@ class Tablero:
             for i in range(longitud):
                 if tablero[fila, columna + i] != '~':
                     return False
+        print("Termina validacion")
         return True  
     
     
@@ -228,4 +231,53 @@ class Tablero:
                         coord_disparo_ordenador.append(coord_disparo)
                         repetido = False
 
-     
+def mostrar_tablero(tablero):
+    print("   0 1 2 3 4 5 6 7 8 9")
+    for i in range(len(tablero)):
+        print(i, end="  ")
+        for j in range(len(tablero[i])):
+            if tablero[i, j] == 0:
+                print(".", end=" ")
+            elif tablero[i, j] == 1:
+                print("O", end=" ")
+            elif tablero[i, j] == 2:
+                print("X", end=" ")
+        print()
+
+def main():
+    print("inicializa vidas usuario y ordenador")
+    vidas_usuario = sum(barcos.values())
+    vidas_ordenador = sum(barcos.values())
+    print("tablero jugador")
+    tablero_jugador = Tablero("Jugador")
+    print("tablero ordenador")
+    tablero_ordenador = Tablero("Ordenador")
+    print("init tab us")
+    tablero_jugador.inicializar_tablero_usuario()
+    print("init tab ord")
+    tablero_ordenador.inicializar_tablero_ordenador()
+
+    print("¡Bienvenido a Batalla Naval!\n")
+    print("Instrucciones:")
+    print(" - 'O' representa un barco")
+    print(" - 'X' representa un barco impactado")
+    print(" - '~' representa agua\n")
+
+    while True:
+        # Turno del jugador
+        print("Tu turno:")
+        tablero_ordenador.mostrar_tablero()
+        tablero_jugador.disparo_jugador()
+        if vidas_ordenador <= 0:
+            print("¡Has ganado!")
+            break
+
+        # Turno del ordenador
+        print("\nTurno del Ordenador:")
+        tablero_jugador.disparo_ordenador()
+        if vidas_usuario <= 0:
+            print("¡El Ordenador ha ganado!")
+            break
+
+if __name__ == "__main__":
+    main()     
