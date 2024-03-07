@@ -1,4 +1,6 @@
-dimensiones_tablero = 10 #define las dimensiones del tablero, que es cuadrado (10x10).
+import numpy as np 
+
+dimensiones = 10 #define las dimensiones del tablero, que es cuadrado (10x10).
 barcos = {"barco1": 1,
           "barco2": 2,
           "barco3": 3,
