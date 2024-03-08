@@ -7,6 +7,16 @@ def disparo_coordenada(self, fila, columna):
             self.tablero_oculto[fila, columna] = 3  # Cambia el estado del tablero oculto para mostrar el disparo del oponente
             self.tablero[fila, columna] = '~'
             return False    
+if __name__ == "__main__":
+    # Crear un objeto Tablero para el jugador
+    tablero_jugador = Tablero(id_jugador="Usuario")
+
+    # Inicializar el tablero del jugador
+    tablero_jugador.inicializar_tablero_usuario()
+
+    # Aquí puedes continuar con el resto de la lógica del juego...
+    #
+
 
 # BONUS: RECOMPENSA creamos recompensa de reparar una pieza
 def recompensa(tablero):

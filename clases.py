@@ -23,6 +23,13 @@ class Tablero:
         self.colocar_barcos()
 
     # Método para colocar los barcos en el tablero
+#Se crea la función colocar_barcos que permite colocar barcos en tableros (están en variables). Primero itera sobre diccionario barcos, que contiene los tipos de barcos 
+#como claves y las longitudes como valores.  Para cada tipo de barco, se ejecuta un bucle while hasta que el barco se coloque correctamente. Se generan aleatoriamente coordenadas
+#dentro del tablero (self.dimensiones). También se elige aleatoriamente una orientación ("H" para horizontal y "V" para vertical). Llama a la función validar_posicion, que se explica
+#en el siguiente bloque. Con ella, verifica si la posición generada aleatoriamente es válida para colocar el barco. Siendo válida, coloca en el tablero oculto: Si la posición es válida,
+#se coloca el barco en el tablero oculto (self.tablero_oculto_jugador o self.tablero_oculto_maquina, dependiendo del turno) con valor igual a 1 en la coordenada valida. 
+#Una vez que el barco se ha colocado, la variable colocado es True, lo que hace que el bucle while termine y se pase al siguiente barco en el diccionario. 
+        
     def colocar_barcos(self):
         for barco, longitud in self.barcos.items():
             colocado = False
