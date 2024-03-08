@@ -87,7 +87,7 @@ class Tablero:
             self.tablero_visible_jugador[fila, columna] = "X"  # Barco impactado
             return True
         else:
-            self.tablero_visible_maquina[fila, columna] = "."  # Agua
+            self.tablero_visible_jugador[fila, columna] = "."  # Agua
             return False
 
     # Método para mostrar en pantalla el tablero del jugador

@@ -21,7 +21,7 @@ def obtener_coordenadas():
         except ValueError: #lo incluimos por si el jugador mete valores no numericos
             print("Por favor, introduce valores numéricos válidos.")
 
-# Función para el turno del jugador
+
 #Creamos la función turno_jugador: que gestiona el turno del jugador humano. Recibe como argumentos el tablero de juego y las coordenadas (fila y columna)
 # donde el jugador desea disparar. Llama a la función disparo_coordenada_jugador que realiza el disparo en el tablero del oponente 
 #y devuelve un valor booleano indicando si se impactó un barco , si lo hace -True- sigue jugando al pedir nuevas coordenadas, si no acierta -False-  termina 
@@ -38,17 +38,12 @@ def turno_jugador(tablero, fila, columna):
             print("Agua...")
             break  # Si no hay impacto en un barco, el turno del jugador termina
 
-# Función para el turno de la máquina
-def turno_maquina(tablero_visible_maquina):
 # Creamos función turno_maquina: que gestiona el turno de la máquina. Selecciona aleatoriamente las coordenadas de disparo utilizando np.random.randint, válido
 # ya que se ha importando la biblioteca NumPy al principio del código. Se llama a una función (disparo_coordenada_maquina) que realiza el disparo y 
 #devuelve si hubo un impacto o no. Después de cada disparo, se notifica el resultado. Si la máquina impacta, puede seguir disparando y si falla, su turno termina.
 
-def turno_maquina(tablero_jugador, tablero_maquina):
+def turno_maquina(tablero_visible_maquina):
     while True:
-        fila = np.random.randint(0, tablero_jugador.dimensiones)
-        columna = np.random.randint(0, tablero_jugador.dimensiones)
-        impacto = tablero_jugador.disparo_coordenada_jugador(fila, columna)  # Cambio aquí
         #María FM: aquí ver si mostrar tablero como en línea 32.
         fila = np.random.randint(0, tablero_visible_maquina.dimensiones)
         columna = np.random.randint(0, tablero_visible_maquina.dimensiones)
