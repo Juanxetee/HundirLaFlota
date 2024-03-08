@@ -24,7 +24,7 @@ def main():
             break #salimos del bucle con un break
 
         print("Turno de la máquina:")  #repetimos mismo proceso pero siendo la maquina quien genera disparo aleatorio
-        turno_maquina(tablero_jugador)
+        turno_maquina(tablero_jugador, tablero_maquina)
         if juego_terminado(tablero_jugador, tablero_maquina):
             print("¡La máquina ha ganado!")
             break

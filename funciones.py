@@ -26,16 +26,18 @@ def turno_jugador(tablero, fila, columna):
             print("Agua...")
             break  # Si no hay impacto en un barco, el turno del jugador termina
 
-def turno_maquina(tablero):
+def turno_maquina(tablero_jugador, tablero_maquina):
     while True:
-        fila = np.random.randint(0, tablero.dimensiones)
-        columna = np.random.randint(0, tablero.dimensiones)
-        impacto = tablero.disparo_coordenada_maquina(fila, columna)
+        fila = np.random.randint(0, tablero_jugador.dimensiones)
+        columna = np.random.randint(0, tablero_jugador.dimensiones)
+        impacto = tablero_jugador.disparo_coordenada_jugador(fila, columna)  # Cambio aquí
         print(f"La máquina dispara en la fila {fila} y columna {columna}")
         if impacto:
             print("¡La máquina ha impactado en uno de tus barcos!")
+            tablero_maquina.tablero_visible_jugador[fila, columna] = "X"  # Actualiza el tablero visible del jugador
         else:
             print("La máquina ha dado en el agua...")
+            tablero_maquina.tablero_visible_jugador[fila, columna] = "."  # Actualiza el tablero visible del jugador
             break
 
 def juego_terminado(tablero_jugador, tablero_maquina):
