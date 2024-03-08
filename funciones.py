@@ -12,9 +12,10 @@ def obtener_coordenadas():
                 return fila, columna
             else:
                 print("Coordenadas fuera de rango. Inténtalo de nuevo.")
-        except ValueError:
+        except ValueError: #lo incluimos por si el jugador mete valores no numericos
             print("Por favor, introduce valores numéricos válidos.")
 
+# Función para el turno del jugador
 def turno_jugador(tablero, fila, columna):
     while True:
         impacto = tablero.disparo_coordenada_jugador(fila, columna)
@@ -26,19 +27,19 @@ def turno_jugador(tablero, fila, columna):
             print("Agua...")
             break  # Si no hay impacto en un barco, el turno del jugador termina
 
-def turno_maquina(tablero_jugador, tablero_maquina):
+# Función para el turno de la máquina
+def turno_maquina(tablero_visible_maquina):
     while True:
-        fila = np.random.randint(0, tablero_jugador.dimensiones)
-        columna = np.random.randint(0, tablero_jugador.dimensiones)
-        impacto = tablero_jugador.disparo_coordenada_jugador(fila, columna)  # Cambio aquí
+        fila = np.random.randint(0, tablero_visible_maquina.dimensiones)
+        columna = np.random.randint(0, tablero_visible_maquina.dimensiones)
+        impacto = tablero_visible_maquina.disparo_coordenada_maquina(fila, columna)  
         print(f"La máquina dispara en la fila {fila} y columna {columna}")
         if impacto:
             print("¡La máquina ha impactado en uno de tus barcos!")
-            tablero_maquina.tablero_visible_jugador[fila, columna] = "X"  # Actualiza el tablero visible del jugador
         else:
             print("La máquina ha dado en el agua...")
-            tablero_maquina.tablero_visible_jugador[fila, columna] = "."  # Actualiza el tablero visible del jugador
             break
 
+# Función para verificar si el juego ha terminado
 def juego_terminado(tablero_jugador, tablero_maquina):
-    return np.sum(tablero_jugador.tablero_oculto_jugador) == 0 or np.sum(tablero_maquina.tablero_oculto_maquina) == 0
+    return np.sum(tablero_jugador.tablero_oculto_jugador == 1) == 0 or np.sum(tablero_maquina.tablero_oculto_maquina == 1) == 0
