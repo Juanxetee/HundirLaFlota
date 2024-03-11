@@ -44,7 +44,6 @@ def turno_jugador(tablero, fila, columna):
 
 def turno_maquina(tablero_visible_maquina):
     while True:
-        #María FM: aquí ver si mostrar tablero como en línea 32.
         fila = np.random.randint(0, tablero_visible_maquina.dimensiones)
         columna = np.random.randint(0, tablero_visible_maquina.dimensiones)
         impacto = tablero_visible_maquina.disparo_coordenada_maquina(fila, columna)  

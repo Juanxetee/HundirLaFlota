@@ -93,12 +93,12 @@ class Tablero:
     # Método para mostrar en pantalla el tablero del jugador
     def mostrar_tablero_jugador(self):
         print("   " + " ".join([str(i) for i in range(self.dimensiones)]))
-        for i in range(self.dimensiones):
-            fila = ""
-            for j in range(self.dimensiones):
+        for i in range(self.dimensiones): #Este bucle itera sobre cada fila del tablero
+            fila = "" # iniciamos una cadena de strings vacia para la fila
+            for j in range(self.dimensiones): # recorremos las columnas
                 if self.tablero_visible_jugador[i, j] == "~":
                     if self.tablero_oculto_jugador[i, j] == 1:
-                        fila += "O "  # Barco oculto
+                        fila += "O "  # Barco oculto donde corresponde 1 
                     else:
                         fila += "~ "  # Agua oculta
                 else:
